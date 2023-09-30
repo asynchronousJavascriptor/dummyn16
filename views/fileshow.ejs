@@ -34,14 +34,14 @@
         <div id="files">
           <% files.forEach(function(elem){ %>
             <div class="file">
-              <a href="/file/<%= elem.name %>">
+              <h4>
                   <% if(elem.isDirectory()){ %>
                     <i class="ri-folder-line"></i>
                   <% } else { %>
                     <i class="ri-file-line"></i>
                   <% } %>
                   <%= elem.name %>
-              </a>
+              </h4>
               <div class="ficons">
                 <i class="ri-pencil-line"></i>
                 <i class="ri-delete-bin-5-line"></i>

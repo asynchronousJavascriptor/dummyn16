@@ -8,6 +8,19 @@ router.get('/', function(req, res, next) {
   });  
 });
 
+router.get('/file/:filename', function(req, res, next) {
+  fs.readdir(`./files`, {withFileTypes: true}, function(err, files){
+    res.render("fileshow", {files});
+  });  
+});
+
+router.get('/foldercreate', function(req, res, next) {
+  fs.mkdir(`./files/${req.query.foldername}`, function(err){
+    if(err) throw err;
+    res.redirect("/");
+  })
+});
+
 router.get('/filecreate', function(req, res, next) {
   fs.writeFile(`./files/${req.query.filename}`, "", function(err){
     if(err) throw err;
