@@ -44,7 +44,11 @@
               </a>
               <div class="ficons">
                 <i class="ri-pencil-line"></i>
-                <i class="ri-delete-bin-5-line"></i>
+                <% if(elem.isDirectory()){ %>
+                  <a href="/folder/delete/<%= elem.name %>"><i class="ri-delete-bin-5-line"></i></a>
+                  <% } else { %>
+                  <a href="/file/delete/<%= elem.name %>"><i class="ri-delete-bin-5-line"></i></a>
+                <% } %>
               </div>
             </div>
           <% }) %>

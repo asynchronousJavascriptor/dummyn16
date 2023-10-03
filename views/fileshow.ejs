@@ -34,14 +34,14 @@
         <div id="files">
           <% files.forEach(function(elem){ %>
             <div class="file">
-              <h4>
+              <a href="/file/<%= elem.name %>">
                   <% if(elem.isDirectory()){ %>
                     <i class="ri-folder-line"></i>
                   <% } else { %>
                     <i class="ri-file-line"></i>
                   <% } %>
                   <%= elem.name %>
-              </h4>
+              </a>
               <div class="ficons">
                 <i class="ri-pencil-line"></i>
                 <i class="ri-delete-bin-5-line"></i>
@@ -51,7 +51,15 @@
         </div>
       </div>
       <div id="right">
-        <small>nothing to show here.</small>
+        <div id="rheader">
+          <div class="opened">
+            <%= filename %>
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+        <form id="content" action="">
+          <textarea name="filedata"><%= data %></textarea>
+        </form>
       </div>
     </div>
 
