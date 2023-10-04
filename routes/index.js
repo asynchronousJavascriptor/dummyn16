@@ -5,7 +5,7 @@ const fs = require("fs");
 router.get("/", function(req, res){
   fs.readdir("./files", {withFileTypes: true}, function(err, files){
     res.render("index", {files});
-  })ś
+  })
 });
 
 router.get("/file/delete/:filename", function(req, res){
