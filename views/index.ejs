@@ -11,7 +11,7 @@
   <div id="overlay">
     <div id="popup">
       <h3>Rename</h3>
-      <form action="/change">
+      <form id="changeform" action="" method="post">
         <input id="changeinp" type="text" name="filename">
         <input type="submit" value="Change">
       </form>
@@ -70,10 +70,13 @@
 
     <script>
 
-      document.querySelector("#edit")
-      .addEventListener("click", function(){
-        document.querySelector("#overlay").style.display = "initial";
-        document.querySelector("#changeinp").value = this.dataset.val;
+      document.querySelector("#files")
+      .addEventListener("click", function(dets){
+        if(dets.target.id === "edit"){
+          document.querySelector("#overlay").style.display = "initial";
+          document.querySelector("#changeinp").value = dets.target.dataset.val;
+          document.querySelector("#changeform").setAttribute("action", `/change/${dets.target.dataset.val}`)
+        }
       });
 
       function donoOffKaro(){

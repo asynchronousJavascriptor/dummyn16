@@ -8,6 +8,12 @@ router.get("/", function(req, res){
   })
 });
 
+router.post("/change/:oldname", function(req, res){
+  fs.rename(`./files/${req.params.oldname}`, `./files/${req.body.filename}`, function(err){
+    res.redirect("/");
+  })
+});
+
 router.get("/file/delete/:filename", function(req, res){
   fs.unlink(`./files/${req.params.filename}`, function(err){
     res.redirect("/");
